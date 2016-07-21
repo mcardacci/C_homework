@@ -1,0 +1,9 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=6116E593
+eax=00000004 ebx=00000004 ecx=00000000 edx=00000004 esi=00000000 edi=00000004
+ebp=0028C9A8 esp=0028C9A4 program=C:\Users\marcoc\Desktop\projects\C\C_homework\array_int_pointers.exe, pid 15048, thread main
+cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
+Stack trace:
+Frame     Function  Args
+0028C9A8  6116E593 (00000004, 0028CA64, 00403093, 00000001)
+0028CAE4  6118B28B (61246E94, 00000001, 80010321, 00000006)
+End of stack trace
