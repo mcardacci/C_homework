@@ -17,10 +17,9 @@ void *ec_malloc(unsigned int);  // Error checking malloc() wrapper
 int main(int argc, char *argv[])
 {
     int fd;  // File Descriptor
-    char *buffer, *datafile;
 
-    buffer = (char *) ec_malloc(100);
-    datafile = (char *) ec_malloc(20);
+    char *buffer = (char *) ec_malloc(100);
+    char *datafile = (char *) ec_malloc(20);
     strcpy(datafile, "/tmp/notes");
 
     // If no command line args, print usage func
@@ -35,7 +34,7 @@ int main(int argc, char *argv[])
     strncat(buffer, "\n", 1);
 
     // Opening file
-    fd = open(datafile, O_WRONLY|O_CREAT|O_APPEND, S_IRUSR|S_IWUSR);
+    fd = open(datafile, O_WRONLY|O_CREAT|O_APPEND, S_IRUSR|S_IWUSR); 
     if (fd == -1)
     {
         fatal("in main() while opening file");
