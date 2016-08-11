@@ -34,11 +34,16 @@ void dump(const unsigned char *data_buffer, const unsigned int length)
     {
         byte = data_buffer[i];
         printf("%02x ", data_buffer[i]); //Display the byte in hex
-        if(((i%16) == 15) || (i == length))
+        if(((i%16) == 15) || (i == length-1))
         {
-            for (j = 0; j < 15; j++) 
+            for (j = 0; j < 15-(i%16); j++) 
             {
-                byte = data_buffer[j];
+                printf("    ");
+            }
+            printf("| ");
+            for (j = (i-(i%16)); j <= i; j++)
+            {
+                byte = data_buffer[j];          // Display printable bytes from line
                 if ((byte > 31) && (byte < 127)) // Outside printable char range
                 {
                     printf("%c", byte);
