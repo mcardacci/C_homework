@@ -2,6 +2,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -85,9 +86,9 @@ void handle_connection(int sockfd, struct sockaddr_in *client_addr_ptr)
         }
         else  // Valid request with ptr pointing to the resource name
         {
-            if(ptr[strlen(ptr) - 1] == '/')  // For resource ending with '/',
+            if (*ptr == '/')  // For resource ending with '/',
             {
-                strcat(ptr, "index.html");   // add 'index.html' to the end. 
+                 ptr = "/index.html";   // add 'index.html' to the end. 
             }
             strcpy(resource, WEBROOT);       // Begin resource with web root path
             strcat(resource, ptr);           // and join it with the resource path
